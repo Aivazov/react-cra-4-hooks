@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AlertContext } from '../App';
 
 export default function Alert() {
-  return (
-    <div className={'alert alert-danger'}>
-      Really important message
-    </div>
-  )
+  const alert = useContext(AlertContext);
+  if (!alert) {
+    return null;
+  }
+
+  return <div className={'alert alert-danger'}>Really important message</div>;
 }
