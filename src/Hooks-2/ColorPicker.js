@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames'; // this lib makes it possible to easy change between standard & active classes
-import './Colopicker.css';
+import './ColorPicker.css';
 
 const colorPickerOptions = [
   { label: 'red', color: '#f44336' },
