@@ -17,9 +17,6 @@ export default class Timer extends Component {
   intervalId = null;
 
   componentDidMount() {
-    // this.intervalId = setInterval(() => {
-    //   this.setState({ time: new Date() });
-    // }, 1000);
     this.start();
   }
 

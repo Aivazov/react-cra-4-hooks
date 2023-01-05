@@ -27,11 +27,11 @@ function App() {
     // </AlertContext.Provider>
     // <Timer />
     // <Counter />
-    // <CounterHooks />
+    <CounterHooks />
     // <SignUpForm />
     // <SignUpFormHooks />
     // <ColorPicker />
-    <ColorPickerHooks />
+    // <ColorPickerHooks />
   );
 }
 

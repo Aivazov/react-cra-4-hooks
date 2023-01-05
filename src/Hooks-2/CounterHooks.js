@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function CounterHooks() {
   const [counterA, setCounterA] = useState(0);
@@ -11,6 +11,12 @@ export default function CounterHooks() {
   const handleCounterBIncrement = () => {
     setCounterB((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    const totalClicks = counterA + counterB;
+    document.title = `You are clicked ${totalClicks} times`;
+  }, [counterA, counterB]);
+
   return (
     <>
       <button type="button" onClick={handleCounterAIncrement}>
