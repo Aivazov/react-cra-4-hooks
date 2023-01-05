@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const styles = {
   clockface: {
@@ -8,37 +8,60 @@ const styles = {
   },
 };
 
-export default class Timer extends Component {
-  state = {
-    time: new Date(),
-  };
+export default function TimerHooks() {
+  const [time, setTime] = useState(new Date());
+  const [toggleBtn, setToggleBtn] = useState(true);
+  const intervalId = useRef();
 
-  intervalId = null;
+  useEffect(() => {
+    start();
+    setToggleBtn(false);
 
-  componentDidMount() {
-    this.intervalId = setInterval(() => {
-      this.setState({ time: new Date() });
+    return () => {
+      stop();
+      setToggleBtn(true);
+    };
+  }, [time, toggleBtn]);
+
+  const start = () => {
+    intervalId.current = setInterval(() => {
+      console.log(Date.now());
+      setTime(new Date());
     }, 1000);
-  }
-
-  componentWillUnmount() {
-    this.stop();
-  }
-
-  stop = () => {
-    clearInterval(this.intervalId);
   };
 
-  render() {
-    return (
-      <>
-        <p style={styles.clockface}>
-          Current time: {this.state.time.toLocaleTimeString()}
-        </p>
-        <button type="button" onClick={this.stop}>
+  const stop = () => {
+    clearInterval(intervalId.current);
+  };
+
+  return (
+    <>
+      <p style={styles.clockface}>Current time: {time.toLocaleTimeString()}</p>
+      {!toggleBtn ? (
+        <button
+          type="button"
+          onClick={stop}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
           Stop
         </button>
-      </>
-    );
-  }
+      ) : (
+        <button
+          type="button"
+          onClick={start}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          Start
+        </button>
+      )}
+    </>
+  );
 }

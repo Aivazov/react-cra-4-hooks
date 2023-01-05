@@ -10,7 +10,6 @@ import SignUpFormHooks from './Hooks-2/SignUpFormHooks';
 import ColorPicker from './Hooks-2/ColorPicker';
 import ColorPickerHooks from './Hooks-2/ColorPickerHooks';
 
-
 import './App.css';
 
 export const AlertContext = React.createContext();
@@ -26,8 +25,9 @@ function App() {
     //   </div>
     // </AlertContext.Provider>
     // <Timer />
+    <TimerHooks />
     // <Counter />
-    <CounterHooks />
+    // <CounterHooks />
     // <SignUpForm />
     // <SignUpFormHooks />
     // <ColorPicker />
