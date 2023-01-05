@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NewsForm from './NewsForm';
+// import NewsFormHooks from './NewsFormHooks';
 
 axios.defaults.headers.common['Authorization'] =
   'Bearer 4330ebfabc654a6992c2aa792f3173a3';
@@ -37,18 +38,21 @@ export default class News extends Component {
     });
   };
 
-  fetchingArticles = () => {
+  fetchArticles = () => {
     const { currentPage, searchQuery } = this.state;
     const options = { searchQuery, currentPage };
 
     this.setState({ isLoading: true });
 
-    fetchArticles(options).then((articles) => {
-      this.setState((prevState) => ({
-        articles: [...prevState.articles, ...articles],
-        currentPage: prevState.currentPage + 1,
-      }));
-    });
+    fetchArticles(options)
+      .then((articles) => {
+        this.setState((prevState) => ({
+          articles: [...prevState.articles, ...articles],
+          currentPage: prevState.currentPage + 1,
+        }));
+      })
+      .catch((error) => this.setState({ error }))
+      .finally(() => this.setState({ isLoading: false }));
   };
 
   render() {
@@ -72,7 +76,7 @@ export default class News extends Component {
         </ul>
 
         {shouldRenderLoadMoreButton && (
-          <button type="button" onClick={this.fetchingArticles}>
+          <button type="button" onClick={this.fetchArticles}>
             Load More
           </button>
         )}
