@@ -9,6 +9,7 @@ import SignUpForm from './Hooks-2/SignUpForm';
 import SignUpFormHooks from './Hooks-2/SignUpFormHooks';
 import ColorPicker from './Hooks-2/ColorPicker';
 import ColorPickerHooks from './Hooks-2/ColorPickerHooks';
+import NewsForm from './Hooks-2/NewsForm';
 
 import './App.css';
 
@@ -25,13 +26,14 @@ function App() {
     //   </div>
     // </AlertContext.Provider>
     // <Timer />
-    <TimerHooks />
+    // <TimerHooks />
     // <Counter />
     // <CounterHooks />
     // <SignUpForm />
     // <SignUpFormHooks />
     // <ColorPicker />
     // <ColorPickerHooks />
+    <NewsForm />
   );
 }
 
