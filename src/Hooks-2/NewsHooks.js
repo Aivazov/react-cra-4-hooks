@@ -18,11 +18,16 @@ export default function NewsHooks() {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetchArticles({ searchQuery: query, currentPage }).then((response) =>
-      setArticles((prevArticles) => [...prevArticles, ...response])
-    );
+    setIsLoading(true);
+    fetchArticles({ searchQuery: query, currentPage })
+      .then((response) => {
+        setArticles((prevArticles) => [...prevArticles, ...response]);
+        setCurrentPage((prevPage) => prevPage + 1);
+      })
+      .finally(() => setIsLoading(false)); //has to be passed as a anonymous callback
   }, [query, currentPage]);
 
   const onChangeQuery = (query) => {
@@ -43,6 +48,12 @@ export default function NewsHooks() {
           </li>
         ))}
       </ul>
+
+      {isLoading && (
+        <p style={{ fontSize: 24, display: 'flex', alignItems: 'center' }}>
+          Loading...
+        </p>
+      )}
     </div>
   );
 }
