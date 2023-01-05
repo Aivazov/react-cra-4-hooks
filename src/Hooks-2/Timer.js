@@ -8,7 +8,7 @@ const styles = {
   },
 };
 
-export default class Hook_2 extends Component {
+export default class Timer extends Component {
   state = {
     time: new Date(),
     toggleBtn: true,

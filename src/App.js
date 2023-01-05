@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import HooksFirstMain from './Hooks-1/Main';
 import HooksFirstAlert from './Hooks-1/Alert';
-import Hook_2 from './Hooks-2/Hook_2';
+import Timer from './Hooks-2/Timer';
+import TimerHooks from './Hooks-2/TimerHooks';
+import Counter from './Hooks-2/Counter';
+import CounterHooks from './Hooks-2/CounterHooks';
+import SignUpForm from './Hooks-2/SignUpForm';
+import SignUpFormHooks from './Hooks-2/SignUpFormHooks';
 
 import './App.css';
 
@@ -17,7 +22,11 @@ function App() {
     //     <HooksFirstMain toggle={toggleAlert} />
     //   </div>
     // </AlertContext.Provider>
-    <Hook_2 />
+    // <Timer />
+    // <Counter />
+    // <CounterHooks />
+    // <SignUpForm />
+    <SignUpFormHooks />
   );
 }
 
