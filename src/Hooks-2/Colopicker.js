@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import classNames from 'classnames';
+import classNames from 'classnames'; // this lib makes it possible to easy change between standard & active classes
 import './Colopicker.css';
 
 const colorPickerOptions = [
@@ -27,11 +27,13 @@ export default class ColorPicker extends PureComponent {
   };
   render() {
     const { activeOptionIndex } = this.state;
-    // const { label, color } = colorPickerOptions;
+    const { label } = colorPickerOptions[activeOptionIndex];
     return (
       <div className="ColorPicker">
         <h2>ColorPicker</h2>
-        <p>Choose color: {colorPickerOptions.label}</p>
+        <p>
+          Chosen color: <strong>{label}</strong>
+        </p>
         <div>
           {colorPickerOptions.map(({ label, color }, index) => (
             <button
