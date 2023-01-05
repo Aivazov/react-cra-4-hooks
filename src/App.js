@@ -9,7 +9,8 @@ import SignUpForm from './Hooks-2/SignUpForm';
 import SignUpFormHooks from './Hooks-2/SignUpFormHooks';
 import ColorPicker from './Hooks-2/ColorPicker';
 import ColorPickerHooks from './Hooks-2/ColorPickerHooks';
-import NewsForm from './Hooks-2/NewsForm';
+import News from './Hooks-2/News';
+import NewsHooks from './Hooks-2/NewsHooks';
 
 import './App.css';
 
@@ -33,7 +34,8 @@ function App() {
     // <SignUpFormHooks />
     // <ColorPicker />
     // <ColorPickerHooks />
-    <NewsForm />
+    // <News />
+    <NewsHooks />
   );
 }
 

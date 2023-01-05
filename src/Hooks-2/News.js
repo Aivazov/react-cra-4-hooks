@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NewsForm from './NewsForm';
-// import NewsFormHooks from './NewsFormHooks';
+// import NewsForm from './NewsForm';
+import NewsFormHooks from './NewsFormHooks';
 
 axios.defaults.headers.common['Authorization'] =
-  'Bearer 4330ebfabc654a6992c2aa792f3173a3';
+  'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
 const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 5 }) => {
   return axios
@@ -23,7 +23,7 @@ export default class News extends Component {
     error: null,
   };
 
-  componentDidUpdate(_, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.searchQuery !== this.state.searchQuery) {
       this.fetchArticles();
     }
@@ -61,9 +61,9 @@ export default class News extends Component {
 
     return (
       <div>
-        {error && <h1>This is a mistake {error.message}</h1>}
+        {error && <h1>This is a mistake</h1>}
 
-        <NewsForm onSubmit={this.onChangeQuery} />
+        <NewsFormHooks onSubmit={this.onChangeQuery} />
 
         <ul>
           {articles.map(({ title, url }) => (
