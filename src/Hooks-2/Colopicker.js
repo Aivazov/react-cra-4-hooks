@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import './Colopicker.css'
+import classNames from 'classnames';
+import './Colopicker.css';
 
 const colorPickerOptions = [
   { label: 'red', color: '#f44336' },
@@ -21,16 +22,16 @@ export default class ColorPicker extends PureComponent {
 
   makeOptionClassName = (index) => {
     return classNames('ColorPicker__option', {
-      'Colorpicker__option--active': index === this.state.activeOptionIndex,
+      'ColorPicker__option--active': index === this.state.activeOptionIndex,
     });
   };
   render() {
     const { activeOptionIndex } = this.state;
     // const { label, color } = colorPickerOptions;
     return (
-      <div>
+      <div className="ColorPicker">
         <h2>ColorPicker</h2>
-        <p>Chose color: {colorPickerOptions.label}</p>
+        <p>Choose color: {colorPickerOptions.label}</p>
         <div>
           {colorPickerOptions.map(({ label, color }, index) => (
             <button

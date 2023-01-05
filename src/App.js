@@ -7,6 +7,8 @@ import Counter from './Hooks-2/Counter';
 import CounterHooks from './Hooks-2/CounterHooks';
 import SignUpForm from './Hooks-2/SignUpForm';
 import SignUpFormHooks from './Hooks-2/SignUpFormHooks';
+import ColorPicker from './Hooks-2/Colopicker';
+
 
 import './App.css';
 
@@ -26,7 +28,8 @@ function App() {
     // <Counter />
     // <CounterHooks />
     // <SignUpForm />
-    <SignUpFormHooks />
+    // <SignUpFormHooks />
+    <ColorPicker />
   );
 }
 
