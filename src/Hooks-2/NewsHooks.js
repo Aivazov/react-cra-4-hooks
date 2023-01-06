@@ -19,6 +19,7 @@ export default function NewsHooks() {
   const [query, setQuery] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,6 +28,7 @@ export default function NewsHooks() {
         setArticles((prevArticles) => [...prevArticles, ...response]);
         setCurrentPage((prevPage) => prevPage + 1);
       })
+      .catch((error) => setError(error.message))
       .finally(() => setIsLoading(false)); //has to be passed as a anonymous callback
   }, [query, currentPage]);
 
@@ -34,9 +36,12 @@ export default function NewsHooks() {
     setQuery(query);
     setCurrentPage(1);
     setArticles([]);
+    setError(null);
   };
   return (
     <div style={{ margin: 20 }}>
+      {error && <h1>This is an error: {error}</h1>}
+
       <NewsFormHooks onSubmit={onChangeQuery} />
 
       <ul>
