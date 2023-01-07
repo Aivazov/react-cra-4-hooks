@@ -11,9 +11,7 @@ import ColorPicker from './Hooks-2/ColorPicker';
 import ColorPickerHooks from './Hooks-2/ColorPickerHooks';
 import News from './Hooks-2/News';
 import NewsHooks from './Hooks-2/NewsHooks';
-import { ToastContainer } from 'react-toastify';
-import PokemonForm from './Hooks-2/PokemonAPI/PokemonForm';
-import PokemonInfo from './Hooks-2/PokemonAPI/PokemonInfo';
+import Pokemon from './Hooks-2/PokemonAPI/Pokemon';
 
 import './App.css';
 
@@ -49,11 +47,9 @@ function App() {
     // <News />
     // <NewsHooks />
 
-    // ***POKEMON API***
+    // ***POKEMON API HOOKS***
     <div style={{ margin: 15 }}>
-      <ToastContainer autoClose={3000} /> {/* this is a notiflix alternative */}
-      <PokemonForm onSubmit={handlePokemonSubmit} />
-      <PokemonInfo pokemonName={pokemonName} />
+      <Pokemon />
     </div>
   );
 }
