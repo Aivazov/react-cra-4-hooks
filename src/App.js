@@ -11,6 +11,9 @@ import ColorPicker from './Hooks-2/ColorPicker';
 import ColorPickerHooks from './Hooks-2/ColorPickerHooks';
 import News from './Hooks-2/News';
 import NewsHooks from './Hooks-2/NewsHooks';
+import { ToastContainer } from 'react-toastify';
+import PokemonForm from './Hooks-2/PokemonAPI/PokemonForm';
+import PokemonInfo from './Hooks-2/PokemonAPI/PokemonInfo';
 
 import './App.css';
 
@@ -18,13 +21,22 @@ export const AlertContext = React.createContext();
 
 function App() {
   const [alert, setAlert] = useState(false);
+  const [pokemonName, setPokemonName] = useState('');
+
   const toggleAlert = () => setAlert((prev) => !prev);
+
+  const handlePokemonSubmit = (pokemonName) => {
+    setPokemonName(pokemonName);
+  };
+
   return (
+    //{' '}
     // <AlertContext.Provider value={alert}>
-    //   <div className="App">
-    //     <HooksFirstAlert />
-    //     <HooksFirstMain toggle={toggleAlert} />
-    //   </div>
+    // <div className="App">
+    //   <HooksFirstAlert />
+    //    <HooksFirstMain toggle={toggleAlert} />
+
+    // </div>
     // </AlertContext.Provider>
     // <Timer />
     // <TimerHooks />
@@ -35,7 +47,14 @@ function App() {
     // <ColorPicker />
     // <ColorPickerHooks />
     // <News />
-    <NewsHooks />
+    // <NewsHooks />
+
+    // ***POKEMON API***
+    <div style={{ margin: 15 }}>
+      <ToastContainer autoClose={3000} /> {/* this is a notiflix alternative */}
+      <PokemonForm onSubmit={handlePokemonSubmit} />
+      <PokemonInfo pokemonName={pokemonName} />
+    </div>
   );
 }
 
