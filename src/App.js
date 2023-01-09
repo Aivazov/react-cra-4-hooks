@@ -5,6 +5,7 @@ import Timer from './Hooks-2/Timer';
 import TimerHooks from './Hooks-2/TimerHooks';
 import Counter from './Hooks-2/Counter';
 import CounterHooks from './Hooks-2/CounterHooks';
+import CounterHooks_useReducer from './Hooks-2/CounterHooks_useReducer'
 import SignUpForm from './Hooks-2/SignUpForm';
 import SignUpFormHooks from './Hooks-2/SignUpFormHooks';
 import ColorPicker from './Hooks-2/ColorPicker';
@@ -28,7 +29,7 @@ function App() {
   };
 
   return (
-    //{' '}
+    
     // <AlertContext.Provider value={alert}>
     // <div className="App">
     //   <HooksFirstAlert />
@@ -40,6 +41,7 @@ function App() {
     // <TimerHooks />
     // <Counter />
     // <CounterHooks />
+    <CounterHooks_useReducer /> 
     // <SignUpForm />
     // <SignUpFormHooks />
     // <ColorPicker />
@@ -48,9 +50,9 @@ function App() {
     // <NewsHooks />
 
     // ***POKEMON API HOOKS***
-    <div style={{ margin: 15 }}>
-      <Pokemon />
-    </div>
+    // <div style={{ margin: 15 }}>
+    //   <Pokemon />
+    // </div>
   );
 }
 
