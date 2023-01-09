@@ -15,7 +15,7 @@ function reducer(state, action) {
     case 'decrement':
       return state - action.payload;
     default:
-      return;
+      throw new Error(`Unsupported action type ${action.type}`);
   }
 }
 
