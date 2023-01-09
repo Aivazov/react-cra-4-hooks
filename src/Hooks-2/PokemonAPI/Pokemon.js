@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 // import PokemonForm from './PokemonForm';
 import PokemonFormHooks from './PokemonFormHooks';
+import PokemonInfoHooks from './PokemonInfoHooks';
 import PokemonInfo from './PokemonInfo';
 
 export default function Pokemon() {
@@ -14,7 +15,7 @@ export default function Pokemon() {
     <div style={{ margin: 15 }}>
       <ToastContainer autoClose={3000} /> {/* this is a notiflix alternative */}
       <PokemonFormHooks onSubmit={handlePokemonSubmit} />
-      <PokemonInfo pokemonName={pokemonName} />
+      <PokemonInfoHooks pokemonName={pokemonName} />
     </div>
   );
 }

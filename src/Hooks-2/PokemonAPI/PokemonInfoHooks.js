@@ -1,4 +1,4 @@
-import { Component, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ImSpinner } from 'react-icons/im';
 import '../../help styles/SpinnerStyles.css';
 
@@ -9,6 +9,10 @@ export default function PokemonInfoHooks({ pokemonName }) {
   const [status, setStatus] = useState('idle');
 
   useEffect(() => {
+    if (!pokemonName) {
+      return;
+    }
+
     setStatus('pending');
     setTimeout(() => {
       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
@@ -21,7 +25,7 @@ export default function PokemonInfoHooks({ pokemonName }) {
           );
         })
         .then((pokemon) => {
-          console.log(pokemon);
+          console.log('pokemon', pokemon);
           setPokemon(pokemon);
           setStatus('resolved');
         })
