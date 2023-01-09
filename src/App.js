@@ -5,7 +5,7 @@ import Timer from './Hooks-2/Timer';
 import TimerHooks from './Hooks-2/TimerHooks';
 import Counter from './Hooks-2/Counter';
 import CounterHooks from './Hooks-2/CounterHooks';
-import CounterHooks_useReducer from './Hooks-2/CounterHooks_useReducer'
+import CounterHooks_useReducer from './Hooks-2/CounterHooks_useReducer';
 import SignUpForm from './Hooks-2/SignUpForm';
 import SignUpFormHooks from './Hooks-2/SignUpFormHooks';
 import ColorPicker from './Hooks-2/ColorPicker';
@@ -13,7 +13,7 @@ import ColorPickerHooks from './Hooks-2/ColorPickerHooks';
 import News from './Hooks-2/News';
 import NewsHooks from './Hooks-2/NewsHooks';
 import Pokemon from './Hooks-2/PokemonAPI/Pokemon';
-
+import Friends from './Hooks-2/Friends/Friends';
 import './App.css';
 
 export const AlertContext = React.createContext();
@@ -29,7 +29,6 @@ function App() {
   };
 
   return (
-    
     // <AlertContext.Provider value={alert}>
     // <div className="App">
     //   <HooksFirstAlert />
@@ -41,7 +40,7 @@ function App() {
     // <TimerHooks />
     // <Counter />
     // <CounterHooks />
-    <CounterHooks_useReducer /> 
+    // <CounterHooks_useReducer />
     // <SignUpForm />
     // <SignUpFormHooks />
     // <ColorPicker />
@@ -53,6 +52,7 @@ function App() {
     // <div style={{ margin: 15 }}>
     //   <Pokemon />
     // </div>
+    <Friends />
   );
 }
 
