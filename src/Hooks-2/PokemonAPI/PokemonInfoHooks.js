@@ -4,7 +4,7 @@ import '../../help styles/SpinnerStyles.css';
 
 export default function PokemonInfoHooks({ pokemonName }) {
   const [pokemon, setPokemon] = useState(null);
-  // const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false); no need to use because of state machine patter
   const [error, setError] = useState(null);
   const [status, setStatus] = useState('idle');
 
@@ -34,7 +34,7 @@ export default function PokemonInfoHooks({ pokemonName }) {
           setStatus('rejected');
         });
       // .finally(this.setState({ loading: false, error: null }));
-    }, 500);
+    }, 300);
   }, [pokemonName]);
 
   if (status === 'idle') {

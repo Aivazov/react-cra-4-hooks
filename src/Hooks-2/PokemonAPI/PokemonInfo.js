@@ -13,22 +13,6 @@ export default class PokemonInfo extends Component {
     status: 'idle',
   };
 
-  componentDidMount() {
-    // The first method to make an HTTP Request
-    // const POKE_API_JSON = this.props.items;
-    // this.setState({ loading: true });
-    // setTimeout(() => {
-    //   fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`)
-    //     // fetch(POKE_API_JSON)
-    //     .then((res) => res.json())
-    //     .then((pokemon) => {
-    //       console.log(pokemon);
-    //       this.setState({ pokemon });
-    //     })
-    //     .finally(this.setState({ loading: false }));
-    // }, 500);
-  }
-
   componentDidUpdate(prevProp, prevState) {
     // The second method to make an HTTP Request
     if (prevProp.pokemonName !== this.props.pokemonName) {
@@ -60,8 +44,6 @@ export default class PokemonInfo extends Component {
 
   render() {
     const { pokemon, loading, error, status } = this.state;
-    console.log('pokemon from PokemonInfo: ', pokemon);
-    // console.log(POKE_API_JSON);
 
     // the last thing is use of the state machine
     if (status === 'idle') {
@@ -98,6 +80,8 @@ export default class PokemonInfo extends Component {
         </div>
       );
     }
+
+    // or standard method using return
 
     // return (
     //   <div>
