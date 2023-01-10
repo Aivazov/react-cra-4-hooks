@@ -15,6 +15,8 @@ import NewsHooks from './Hooks-2/NewsHooks';
 import Pokemon from './Hooks-2/PokemonAPI/Pokemon';
 import Friends from './Hooks-2/Friends/Friends';
 import './App.css';
+import ReaderHooks from './Hooks-3/Reader/ReaderHooks';
+import Reader from './Hooks-3/Reader/Reader';
 
 export const AlertContext = React.createContext();
 
@@ -52,7 +54,9 @@ function App() {
     // <div style={{ margin: 15 }}>
     //   <Pokemon />
     // </div>
-    <Friends />
+    // <Friends />
+    <ReaderHooks />
+    // <Reader />
   );
 }
 
