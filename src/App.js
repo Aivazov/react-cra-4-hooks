@@ -47,7 +47,7 @@ function App() {
     // <SignUpFormHooks />
     // <ColorPicker />
     // <ColorPickerHooks />
-    // <News />
+    <News />
     // <NewsHooks />
 
     // ***POKEMON API HOOKS***
@@ -55,7 +55,7 @@ function App() {
     //   <Pokemon />
     // </div>
     // <Friends />
-    <ReaderHooks />
+    // <ReaderHooks />
     // <Reader />
   );
 }

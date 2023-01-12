@@ -60,7 +60,7 @@ export default class News extends Component {
     const shouldRenderLoadMoreButton = articles.length > 0 && !isLoading;
 
     return (
-      <div>
+      <div style={{ margin: 15 }}>
         {error && <h1>This is a mistake</h1>}
 
         <NewsFormHooks onSubmit={this.onChangeQuery} />
@@ -76,7 +76,11 @@ export default class News extends Component {
         </ul>
 
         {shouldRenderLoadMoreButton && (
-          <button type="button" onClick={this.fetchArticles}>
+          <button
+            type="button"
+            className="btn btn-primary mt-3 mb-3"
+            onClick={this.fetchArticles}
+          >
             Load More
           </button>
         )}
