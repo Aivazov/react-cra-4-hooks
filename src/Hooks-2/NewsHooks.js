@@ -18,15 +18,17 @@ export default function NewsHooks() {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);  
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     fetchArticles({ searchQuery: query, currentPage })
       .then((response) => {
-        setArticles((prevArticles) => [...prevArticles, ...response]);
-        setCurrentPage((prevPage) => prevPage + 1);
+        setTimeout(() => {
+          setArticles((prevArticles) => [...prevArticles, ...response]);
+          setCurrentPage((prevPage) => prevPage + 1);
+        }, 1000);
       })
       .catch((error) => setError(error.message))
       .finally(() => setIsLoading(false)); //has to be passed as a anonymous callback
@@ -38,7 +40,7 @@ export default function NewsHooks() {
     setArticles([]);
     setError(null);
   };
-  
+
   return (
     <div style={{ margin: 20 }}>
       {error && <h1>This is an error: {error}</h1>}
